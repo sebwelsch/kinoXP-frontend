@@ -1,10 +1,20 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
+name: User story
+about: Make a user story
 title: ''
-labels: ''
+labels: enhancement
 assignees: ''
 
 ---
 
+### Som ansat i biografen vil jeg 
 
+## Acceptkriterier:
+### Frontend:
+- [ ] 
+- [ ] 
+- [ ]
+### Backend:
+- [ ] 
+- [ ] 
+- [ ]
