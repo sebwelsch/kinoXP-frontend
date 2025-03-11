@@ -2,37 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Log in - KinoXP</title>
-    <link href="../css/login.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 </head>
 <body>
 
-<!--  Form for logging in  -->
-<div class="submit-form-container">
-    <form id="loginForm">
-        <h2>Log in</h2>
-        <div>
-            <label for="username">Username</label>
-            <input id="username" name="username" required type="text">
-        </div>
+<h2>Login</h2>
+<input type="text" id="login-username" placeholder="Username">
+<input type="password" id="login-password" placeholder="Password">
+<button onclick="login()">Login</button>
 
-        <div>
-            <label for="userPassword">Password</label>
-            <input id="userPassword" name="password" required type="password">
-        </div>
+<p id="login-message"></p>
 
-        <button type="submit">Log in</button>
-    </form>
+<p>Don't have an account? <a href="signup.html">Sign up here</a></p>
 
-    <div class="helper">
-        <p>Don't have an account?</p>
-        <a href="/signup">
-            <button>Create account</button>
-        </a>
-    </div>
-</div>
-
-<script src="../js/login.js"></script>
+<script type="module" src="../js/login.js"></script>
 </body>
 </html>
