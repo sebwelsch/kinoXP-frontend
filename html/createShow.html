@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book show</title>
-  <link rel="stylesheet" href="../css/index.css">
+  <title>Opret Show</title>
 </head>
 <body>
+<h2>Opret nyt show</h2>
 
-<header>
-  <h1>Welcome to KinoXP</h1>
-  <p>The best our small town has to offer!</p>
-</header>
+<form id="createShowForm">
+  <label for="movie">Vælg film:</label>
+  <select id="movie" required>
+    <option value="">Vælg en film</option>
+  </select>
 
-<main>
-  <section id="movies">
-    <h2>Book a show</h2>
-    <label>
-      Category
-      <select id="categorySelect" required>
-        <option value="">Select a category</option>
-      </select>
-    </label>
-  </section>
-</main>
+  <label for="hall">Vælg sal:</label>
+  <select id="hall" required>
+    <option value="">Vælg en sal</option>
+  </select>
 
-<footer>
-  <div class="worker-banner">
-    <p><a href="logout.html">Logout</a></p>
-  </div>
-</footer>
+  <label for="start_date">Startdato:</label>
+  <input type="date" id="start_date" required>
 
-<script src="../js/createMovie.js"></script>
+  <label for="end_date">Slutdato:</label>
+  <input type="date" id="end_date" required>
+
+  <label for="time">Tidspunkt:</label>
+  <input type="time" id="time" required>
+
+  <button type="submit">Opret Show</button>
+</form>
+
+<script src="../js/createShow.js"></script>
+
 </body>
 </html>
