@@ -1,3 +1,4 @@
+// fetch categories from enums in backend
 document.addEventListener("DOMContentLoaded", function () {
     fetch("http://localhost:8080/movies/categories")
         .then(response => response.json())
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Error fetching the movie categories", error));
 });
 
+// send movie data to backend
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("#movieForm");
 
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("category", category);
         formData.append("actors", actors);
         formData.append("duration", duration);
-        formData.append("cover_image", cover_image);  // Append the image file
+        formData.append("cover_image", cover_image);
 
         fetch("http://localhost:8080/movies/add", {
             method: "POST",
