@@ -1,11 +1,11 @@
-document.getElementById("login-button").addEventListener("click", function() {
-    const username = document.getElementById("login-username").value;
-    const password = document.getElementById("login-password").value;
-    const messageElement = document.getElementById("login-message");
+document.getElementById("signup-button").addEventListener("click", function() {
+    const username = document.getElementById("signup-username").value;
+    const password = document.getElementById("signup-password").value;
+    const messageElement = document.getElementById("signup-message");
 
     const data = { username, password };
 
-    fetch("http://localhost:8080/user/login", {
+    fetch("http://localhost:8080/user/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -20,11 +20,11 @@ document.getElementById("login-button").addEventListener("click", function() {
             return response.text();
         })
         .then(result => {
-            messageElement.innerText = "Login Successful";
-            console.log("Login Success:", result);
+            messageElement.innerText = "Success";
+            console.log("Response Success:", result);
         })
         .catch(error => {
-            messageElement.innerText = "Login Failed";
+            messageElement.innerText = "Failed";
             console.error("Error:", error);
         });
 });
