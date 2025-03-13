@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add movie</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<header>
+    <h1>Welcome to KinoXP</h1>
+    <p>The best our small town has to offer!</p>
+</header>
+
+<main>
+    <section id="movies">
+        <h2>Add a new movie</h2>
+        <form id="createMovieForm" enctype="multipart/form-data">
+            <label>
+                Name
+                <input type="text" id="name" name="name" required>
+            </label>
+            <label>
+                Description
+                <textarea rows="5" cols="50" id="description" name="description" required></textarea>
+            </label>
+            <label>
+                Age rating
+                <input type="number" id="age_rating" name="age_rating" min="0" max="18">
+            </label>
+            <label>
+                Category
+                <select id="categorySelect" name="category" required>
+                    <option value="">Select a category</option>
+                </select>
+            </label>
+            <label>
+                Actors
+                <input type="text" id="actors" name="actors">
+            </label>
+            <label>
+                Duration
+                <input type="number" id="duration" name="duration" required>
+            </label>
+            <label>
+                Cover image
+                <input type="file" id="cover_image" name="cover_image" accept="image/png">
+            </label>
+
+            <button type="submit">Add movie</button>
+        </form>
+
+    </section>
+</main>
+
+<footer>
+    <div class="worker-banner">
+        <p><a href="logout.html">Logout</a></p>
+    </div>
+</footer>
+
+<script src="../js/createMovie.js"></script>
+</body>
+</html>

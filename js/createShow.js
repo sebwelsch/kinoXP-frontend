@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("http://localhost:8080/theaterhalls/all")
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies();
     fetchHalls();
@@ -40,6 +42,14 @@ document.querySelector("#btnCreate").addEventListener("click", () => {
 function fetchMovies() {
     fetch("http://localhost:8080/movies/all")
         .then(response => response.json())
+        .then(data => {
+            const selectElement = document.querySelector("#theaterHallSelect");
+
+            data.forEach(theaterHall => {
+                let option = document.createElement("option");
+                option.value = theaterHall.id;
+                option.textContent = theaterHall.name;
+                selectElement.appendChild(option);
         .then(movies => {
             const movieSelect = document.querySelector("#movie");
             movies.forEach(movie => {
@@ -49,6 +59,8 @@ function fetchMovies() {
                 movieSelect.appendChild(option);
             });
         })
+        .catch(error => console.error("Error fetching theater halls:", error));
+});
         .catch(error => console.error("Fejl ved hentning af film:", error));
 }
 
