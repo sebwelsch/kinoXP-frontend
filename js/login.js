@@ -1,19 +1,30 @@
-const API_URL = "./config";
-
-async function login() {
+document.getElementById("login-button").addEventListener("click", function() {
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
+    const messageElement = document.getElementById("login-message");
 
-    const response = await fetch(`${API_URL}/login`, {
+    const data = { username, password };
+
+    fetch("http://localhost:8080/user/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-    });
-
-    const message = await response.text();
-    document.getElementById("login-message").innerText = message;
-
-    if (response.ok) {
-        alert("Login successful!");
-    }
-}
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(errorText => { throw new Error(errorText); });
+            }
+            return response.text();
+        })
+        .then(result => {
+            messageElement.innerText = "Login Successful";
+            console.log("Login Success:", result);
+        })
+        .catch(error => {
+            messageElement.innerText = "Login Failed";
+            console.error("Error:", error);
+        });
+});
