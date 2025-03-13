@@ -1,4 +1,4 @@
-const API_URL = "./config.js";
+const API_URL = "./config";
 
 async function login() {
     const username = document.getElementById("login-username").value;

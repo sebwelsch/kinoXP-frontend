@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup</title>
 </head>
 <body>
 
 <h2>Signup</h2>
-<input type="text" id="signup-username" placeholder="Username">
-<input type="password" id="signup-password" placeholder="Password">
-<button onclick="signup()">Signup</button>
+<label for="signup-username">Username:</label>
+<input type="text" id="signup-username" placeholder="Enter username">
 
+<label for="signup-password">Password:</label>
+<input type="password" id="signup-password" placeholder="Enter password">
+
+<button id="signup-button">Sign Up</button>
 <p id="signup-message"></p>
 
-<script type="module" src="../js/signup.js"></script>
+<script type="module" src="/js/signup.js"></script>
 </body>
 </html>
