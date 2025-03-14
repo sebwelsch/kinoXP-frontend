@@ -1,66 +1,55 @@
-import apiUrl from "./config";
+import apiUrl from "./config.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies();
-});
 
-document.querySelector("#movie").addEventListener("change", (event) => {
-    const movieId = event.target.value;
-    if (movieId) {
-        fetchDates(movieId);
-    } else {
-        resetDropdown("#date");
-        resetDropdown("#time");
-        document.querySelector("#seats").disabled = true;
-    }
-});
+    document.querySelector("#movie").addEventListener("change", (event) => {
+        const movieId = event.target.value;
+        if (movieId) {
+            fetchDates(movieId);
+        } else {
+            resetDropdown("#date");
+            resetDropdown("#time");
+        }
+    });
 
-document.querySelector("#date").addEventListener("change", (event) => {
-    const movieId = document.querySelector("#movie").value;
-    const date = event.target.value;
-    if (date) {
-        fetchTimes(movieId, date);
-    } else {
-        resetDropdown("#time");
-        document.querySelector("#seats").disabled = true;
-    }
-});
+    document.querySelector("#date").addEventListener("change", (event) => {
+        const date = event.target.value;
+        const movieId = document.querySelector("#movie").value;
+        if (date) {
+            fetchTimes(movieId, date);
+        } else {
+            resetDropdown("#time");
+        }
+    });
 
-document.querySelector("#time").addEventListener("change", () => {
-    document.querySelector("#seats").disabled = false;
-    document.querySelector("#btnBook").disabled = false;
-});
+    document.querySelector("#time").addEventListener("change", () => {
+        document.querySelector("#seats").disabled = false;
+        document.querySelector("#btnBook").disabled = false;
+    });
 
-document.querySelector("#btnBook").addEventListener("click", () => {
-    const show_id = parseInt(document.querySelector("#time").value);
-    const seats = parseInt(document.querySelector("#seats").value);
-    const customer_name = document.querySelector("#customer_name").value;
-    const customer_email = document.querySelector("#customer_email").value;
-    const date = document.querySelector("#date").value;
-    const time = document.querySelector("#time option:checked").textContent;
-
-    const data = {show_id, time, seats, date, customer_name, customer_email};
-
-    fetch(`${apiUrl}/bookings/add`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(result => {
-            console.log("Booking oprettet:", result);
-            alert("Billetter er booket!");
-            document.querySelector("#sellTicketForm").reset();
+    document.querySelector("#btnBook").addEventListener("click", () => {
+        const data = {
+            showId: document.querySelector("#time").value,
+            seats: document.querySelector("#seats").value,
+            customer_name: document.querySelector("#customer_name").value,
+            customer_email: document.querySelector("#customer_email").value,
+            date: document.querySelector("#date").value,
+            time: document.querySelector("#time option:checked").textContent
+        };
+        fetch(`${apiUrl}/bookings/book`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
         })
-        .catch(error => {
-            console.error("Fejl:", error);
-            alert("Fejl ved booking af billetter");
-        });
+            .then(response => response.json())
+            .then(() => {
+                alert("Billetter er booket!");
+                document.querySelector("#sellTicketForm").reset();
+            })
+            .catch(() => alert("Fejl ved booking af billetter"));
+    });
 });
-
 
 function fetchMovies() {
     fetch(`${apiUrl}/movies/all`)
@@ -73,10 +62,8 @@ function fetchMovies() {
                 option.textContent = movie.name;
                 movieSelect.appendChild(option);
             });
-        })
-        .catch(error => console.error("Fejl ved hentning af film:", error));
+        });
 }
-
 
 function fetchDates(movieId) {
     fetch(`${apiUrl}/shows/dates?movie_id=${movieId}`)
@@ -91,28 +78,25 @@ function fetchDates(movieId) {
                 option.textContent = date;
                 dateSelect.appendChild(option);
             });
-        })
-        .catch(error => console.error("Fejl ved hentning af datoer:", error));
+        });
 }
-
 
 function fetchTimes(movieId, date) {
     fetch(`${apiUrl}/shows/times?movie_id=${movieId}&date=${date}`)
         .then(response => response.json())
-        .then(times => {
+        .then(times => {  // Now times is an array of strings
             resetDropdown("#time");
             const timeSelect = document.querySelector("#time");
             timeSelect.disabled = false;
-            times.forEach(show => {
+            times.forEach(time => {
                 const option = document.createElement("option");
-                option.value = show.show_id;
-                option.textContent = show.time;
+                option.value = time;  // Use the time as the value
+                option.textContent = time;  // Display the time as text
                 timeSelect.appendChild(option);
             });
         })
-        .catch(error => console.error("Fejl ved hentning af tidspunkter:", error));
+        .catch(err => console.error('Error fetching times:', err));
 }
-
 
 function resetDropdown(selector) {
     const select = document.querySelector(selector);

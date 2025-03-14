@@ -1,4 +1,4 @@
-import apiUrl from "./config";
+import apiUrl from "./config.js";
 
 document.getElementById("login-button").addEventListener("click", function () {
     const username = document.getElementById("login-username").value;

@@ -23,14 +23,24 @@
             </select>
         </div>
 
-        <label for="start_date">Vælg dato:</label>
-        <input id="start_date" required type="date">
+        <div class="form-item">
+            <label for="date">Vælg dato:</label>
+            <select id="date" required disabled>
+                <option value="">Vælg en dato</option>
+            </select>
+        </div>
 
-        <label for="time">Vælg tidspunkt:</label>
-        <input id="time" required type="time">
+        <div class="form-item">
+            <label for="time">Vælg tidspunkt:</label>
+            <select id="time" required disabled>
+                <option value="">Vælg et tidspunkt</option>
+            </select>
+        </div>
 
-        <label for="seats">Antal billetter:</label>
-        <input id="seats" min="1" required type="number">
+        <div class="form-item">
+            <label for="seats">Antal billetter:</label>
+            <input id="seats" min="1" required type="number" disabled>
+        </div>
 
         <div class="form-item">
             <label for="customer_name">Navn:</label>
@@ -42,7 +52,7 @@
             <input id="customer_email" required type="email">
         </div>
 
-        <button disabled id="btnBook" type="button">Book Billetter</button>
+        <button id="btnBook" type="button">Book Billetter</button>
     </form>
 </div>
 

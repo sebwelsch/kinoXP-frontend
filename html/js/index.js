@@ -1,4 +1,4 @@
-import apiUrl from "./config";
+import apiUrl from "./config.js";
 
 function fetchMovies() {
     fetch(`${apiUrl}/movies/all`)
