@@ -1,10 +1,12 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies();
     fetchHalls();
+
+    document.querySelector("#createShowForm").addEventListener("submit", handleFormSubmit);
 });
 
-document.querySelector("#btnCreate").addEventListener("click", () => {
+function handleFormSubmit(event) {
+    event.preventDefault(); // Forhindrer standard form submission
 
     const movie_id = parseInt(document.querySelector("#movie").value);
     const hallId = parseInt(document.querySelector("#hall").value);
@@ -12,10 +14,7 @@ document.querySelector("#btnCreate").addEventListener("click", () => {
     const end_date = document.querySelector("#end_date").value;
     const time = document.querySelector("#time").value;
 
-
     const data = { movie_id, hallId, start_date, end_date, time };
-    console.log("Data sendt til server:", JSON.stringify(data));
-
 
     fetch("http://localhost:8080/shows/add", {
         method: "POST",
@@ -35,15 +34,14 @@ document.querySelector("#btnCreate").addEventListener("click", () => {
             console.error("Fejl:", error);
             alert("Fejl ved oprettelse af show");
         });
-});
-
+}
 
 function fetchMovies() {
     fetch("http://localhost:8080/movies/all")
         .then(response => response.json())
-
         .then(movies => {
             const movieSelect = document.querySelector("#movie");
+            movieSelect.innerHTML = '<option value="">Vælg en film</option>'; // Ryd dropdown først
             movies.forEach(movie => {
                 const option = document.createElement("option");
                 option.value = movie.movie_id;
@@ -51,19 +49,18 @@ function fetchMovies() {
                 movieSelect.appendChild(option);
             });
         })
-
         .catch(error => console.error("Fejl ved hentning af film:", error));
 }
-
 
 function fetchHalls() {
     fetch("http://localhost:8080/theaterhalls/all")
         .then(response => response.json())
         .then(halls => {
             const hallSelect = document.querySelector("#hall");
+            hallSelect.innerHTML = '<option value="">Vælg en sal</option>'; // Ryd dropdown først
             halls.forEach(hall => {
                 const option = document.createElement("option");
-                option.value = hall.id;
+                option.value = hall.hall_id; // Sørg for at matche backend
                 option.textContent = hall.name;
                 hallSelect.appendChild(option);
             });

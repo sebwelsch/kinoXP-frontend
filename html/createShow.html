@@ -4,32 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Opret Show</title>
+  <link href="../css/admin.css" rel="stylesheet">
 </head>
 <body>
-<h2>Opret nyt show</h2>
+<div class="form-container">
+  <h2>Opret nyt show</h2>
+  <form id="createShowForm">
+    <div class="form-item">
+      <label for="movie">Vælg film:</label>
+      <select id="movie" required>
+        <option value="">Vælg en film</option>
+      </select>
+    </div>
 
-<form id="createShowForm">
-  <label for="movie">Vælg film:</label>
-  <select id="movie" required>
-    <option value="">Vælg en film</option>
-  </select>
+    <div class="form-item">
+      <label for="hall">Vælg sal:</label>
+      <select id="hall" required>
+        <option value="">Vælg en sal</option>
+      </select>
+    </div>
 
-  <label for="hall">Vælg sal:</label>
-  <select id="hall" required>
-    <option value="">Vælg en sal</option>
-  </select>
+    <div class="form-item">
+      <label for="start_date">Startdato:</label>
+      <input type="date" id="start_date" required>
+    </div>
 
-  <label for="start_date">Startdato:</label>
-  <input type="date" id="start_date" required>
+    <div class="form-item">
+      <label for="end_date">Slutdato:</label>
+      <input type="date" id="end_date" required>
+    </div>
 
-  <label for="end_date">Slutdato:</label>
-  <input type="date" id="end_date" required>
+    <div class="form-item">
+      <label for="time">Tidspunkt:</label>
+      <input type="time" id="time" required>
+    </div>
 
-  <label for="time">Tidspunkt:</label>
-  <input type="time" id="time" required>
-
-  <button id="btnCreate" type="submit">Opret Show</button>
-</form>
+    <button id="btnCreate" type="submit">Opret Show</button>
+  </form>
+</div>
 
 <script src="../js/createShow.js"></script>
 
