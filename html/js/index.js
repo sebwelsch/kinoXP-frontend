@@ -1,24 +1,27 @@
-fetch(`${apiUrl}/movies/all`)
-    .then(response => response.json())
-    .then(movies => {
-        console.log("Fetched movies:", movies); // Log response
+import apiUrl from "./config.js";
 
-        if (!Array.isArray(movies)) {
-            throw new Error("Expected an array but got something else.");
-        }
+function fetchMovies() {
+    fetch(`${apiUrl}/movies/all`)
+        .then(response => response.json())
+        .then(movies => {
+            console.log("Fetched movies:", movies); // Log response
 
-        const moviesSection = document.querySelector("#movie-list");
+            if (!Array.isArray(movies)) {
+                throw new Error("Expected an array but got something else.");
+            }
 
-        if (movies.length === 0) {
-            moviesSection.innerHTML = "<p>No movies currently available.</p>";
-            return;
-        }
+            const moviesSection = document.querySelector("#movie-list");
 
-        movies.forEach(movie => {
-            const movieCard = document.createElement("div");
-            movieCard.classList.add("movie-card");
+            if (movies.length === 0) {
+                moviesSection.innerHTML = "<p>No movies currently available.</p>";
+                return;
+            }
 
-            movieCard.innerHTML = `
+            movies.forEach(movie => {
+                const movieCard = document.createElement("div");
+                movieCard.classList.add("movie-card");
+
+                movieCard.innerHTML = `
                 <img src="${movie.cover_image}" alt="${movie.name}" class="movie-cover">
                 <div class="movie-info">
                     <h3>${movie.name}</h3>
@@ -30,7 +33,10 @@ fetch(`${apiUrl}/movies/all`)
                 </div>
             `;
 
-            moviesSection.appendChild(movieCard);
-        });
-    })
-    .catch(error => console.error("Error fetching movies:", error));
+                moviesSection.appendChild(movieCard);
+            });
+        })
+        .catch(error => console.error("Error fetching movies:", error));
+}
+
+document.addEventListener("DOMContentLoaded", fetchMovies);
