@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Login</title>
+    <link href="../css/admin.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <span class ="logo"><a href="index.html">KinoXP</a></span>
+    <h1>Admin</h1>
+</header>
 
-<h2>Login</h2>
-<input type="text" id="login-username" placeholder="Enter username">
-<input type="password" id="login-password" placeholder="Enter password">
-<button id="login-button">Login</button>
-<p id="login-message"></p>
+<div class="form-container">
+    <h2>Login</h2>
+    <div class="form-item">
+        <input id="login-username" placeholder="Enter username" type="text">
+    </div>
+    <div class="form-item">
+        <input id="login-password" placeholder="Enter password" type="password">
+    </div>
+    <button id="login-button">Login</button>
+    <span class="login-message"></span>
+</div>
 
-<p>Don't have an account? <a href="signup.html">Sign up here</a></p>
-
-<script type="module" src="../js/login.js"></script>
+<script src="../js/login.js" type="module"></script>
 </body>
 </html>

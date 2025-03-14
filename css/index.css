@@ -12,7 +12,7 @@ header {
     padding: 20px;
 }
 
-.worker-banner {
+.worker-footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -21,11 +21,13 @@ header {
     text-align: center;
     padding: 10px 0;
 }
-.worker-banner a {
+
+.worker-footer a {
     color: #f4a261;
     text-decoration: none;
     font-weight: bold;
 }
-.worker-banner a:hover {
+
+.worker-footer a:hover {
     text-decoration: underline;
 }

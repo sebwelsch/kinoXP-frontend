@@ -17,38 +17,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // send movie data to backend
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("#movieForm");
+    const form = document.querySelector("#createMovieForm");
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        event.preventDefault(); // prevents default get request
 
-        const name = document.querySelector("#name").value;
-        const description = document.querySelector("#description").value;
-        const age_rating = document.querySelector("#age_rating").value;
-        const category = document.querySelector("#category").value;
-        const actors = document.querySelector("#actors").value;
-        const duration = document.querySelector("#duration").value;
-        const cover_image = document.querySelector("#cover_image").files[0];
-
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("description", description);
-        formData.append("age_rating", age_rating);
-        formData.append("category", category);
-        formData.append("actors", actors);
-        formData.append("duration", duration);
-        formData.append("cover_image", cover_image);
+        const movie = {
+            name: document.querySelector("#name").value,
+            description: document.querySelector("#description").value,
+            age_rating: parseInt(document.querySelector("#age_rating").value, 10),
+            category: document.querySelector("#categorySelect").value,
+            actors: document.querySelector("#actors").value,
+            duration: parseInt(document.querySelector("#duration").value, 10),
+            cover_image: "/resources/img"
+        };
 
         fetch("http://localhost:8080/movies/add", {
             method: "POST",
-            body: formData
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(movie)
         })
             .then(response => response.json())
-            .then(data => {
-                console.log("Movie added successfully", data);
+            .then(result => {
+                console.log("Movie added successfully", result);
             })
             .catch(error => {
-                console.error("Error adding movie:", error);
+                console.error("Error adding movie", error);
             });
     });
+
 });
