@@ -7,27 +7,31 @@
   <link href="css/admin.css" rel="stylesheet">
 </head>
 <body>
+<header>
+  <span class="logo"><a href="index.html">KinoXP</a></span>
+  <h1>Admin</h1>
+</header>
 
-<h2>Alle Bookinger</h2>
-<table border="1">
-  <thead>
-  <tr>
-    <th>Booking ID</th>
-    <th>Show ID</th>
-    <th>Dato</th>
-    <th>Tidspunkt</th>
-    <th>Antal Sæder</th>
-    <th>Kundenavn</th>
-    <th>Email</th>
-  </tr>
-  </thead>
-  <tbody id="bookingTableBody">
+<div class="container" style="align-items: center">
+  <h2>Alle Bookinger</h2>
+  <table class="booking-table">
+    <thead>
+    <tr>
+      <th>Booking ID</th>
+      <th>Dato</th>
+      <th>Tidspunkt</th>
+      <th>Antal Sæder</th>
+      <th>Kundenavn</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody id="bookingTableBody">
+    </tbody>
+  </table>
 
-  </tbody>
-</table>
+</div>
 
-
-<script src="js/bookings.js"></script>
+<script type="module" src="js/bookings.js"></script>
 
 </body>
 </html>

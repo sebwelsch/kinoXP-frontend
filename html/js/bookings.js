@@ -17,7 +17,6 @@ async function loadBookings() {
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${booking.booking_id}</td>
-                <td>${booking.show_id}</td>
                 <td>${booking.date}</td>
                 <td>${booking.time}</td>
                 <td>${booking.seats}</td>
