@@ -31,3 +31,49 @@ header {
 .worker-footer a:hover {
     text-decoration: underline;
 }
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-cover {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 15px;
+}
+
+.movie-info h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.movie-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.movie-description {
+    font-style: italic;
+    color: #777;
+}
