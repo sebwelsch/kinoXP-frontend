@@ -4,37 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sælg Billetter</title>
+  <link href="../css/admin.css" rel="stylesheet">
 </head>
 <body>
-<h2>Sælg Billetter</h2>
+<header>
+  <span class ="logo"><a href="index.html">KinoXP</a></span>
+  <h1>Admin</h1>
+</header>
 
-<form id="sellTicketForm">
-  <label for="movie">Vælg film:</label>
-  <select id="movie" required>
-    <option value="">Vælg en film</option>
-  </select>
+<div class="form-container">
+  <h2>Sælg Billetter</h2>
 
-  <label for="date">Vælg dato:</label>
-  <select id="date" required disabled>
-    <option value="">Vælg en dato</option>
-  </select>
+  <form id="sellTicketForm">
+    <div class="form-item">
+      <label for="movie">Vælg film:</label>
+      <select id="movie" required>
+        <option value="">Vælg en film</option>
+      </select>
+    </div>
 
-  <label for="time">Vælg tidspunkt:</label>
-  <select id="time" required disabled>
-    <option value="">Vælg et tidspunkt</option>
-  </select>
+    <div class="form-item">
+      <label for="date">Vælg dato:</label>
+      <select id="date" required disabled>
+        <option value="">Vælg en dato</option>
+      </select>
+    </div>
 
-  <label for="seats">Antal billetter:</label>
-  <input type="number" id="seats" min="1" required disabled>
+    <div class="form-item">
+      <label for="time">Vælg tidspunkt:</label>
+      <select id="time" required disabled>
+        <option value="">Vælg et tidspunkt</option>
+      </select>
+    </div>
 
-  <label for="customer_name">Navn:</label>
-  <input type="text" id="customer_name" required>
+    <div class="form-item">
+      <label for="seats">Antal billetter:</label>
+      <input type="number" id="seats" min="1" required disabled>
+    </div>
 
-  <label for="customer_email">Email:</label>
-  <input type="email" id="customer_email" required>
+    <div class="form-item">
+      <label for="customer_name">Navn:</label>
+      <input type="text" id="customer_name" required>
+    </div>
 
-  <button id="btnBook" type="button" disabled>Book Billetter</button>
-</form>
+    <div class="form-item">
+      <label for="customer_email">Email:</label>
+      <input type="email" id="customer_email" required>
+    </div>
+
+    <button id="btnBook" type="button" disabled>Book Billetter</button>
+  </form>
+</div>
 
 <script src="../js/sell-tickets.js"></script>
 </body>

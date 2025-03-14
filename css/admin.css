@@ -6,10 +6,17 @@ body {
     height: 100vh;
     background-color: #f4f4f4;
 }
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     gap: 20px;
 }
+
 .box {
     width: 150px;
     height: 200px;
@@ -22,16 +29,18 @@ body {
     padding: 20px;
     text-align: center;
 }
+
 .box h2 {
     margin-bottom: 10px;
 }
+
 .box p {
     margin: 5px 0;
 }
 
 header {
     width: 100%;
-    background-color: #333;
+    background-color: darkblue;
     color: white;
     align-items: center;
     justify-content: center;
@@ -39,18 +48,18 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
 }
 
 .logo {
     position: absolute;
-    left: 20px;
-    font-size: 20px;
+    left: 50px;
+    font-size: 25px;
     font-weight: bold;
     display: flex;
     align-items: center;
     height: 100%;
 }
+
 p {
     color: white;
     display: inline-block;
@@ -61,21 +70,20 @@ p {
     cursor: pointer;
     margin: 5px 0;
 }
-h2 {
+
+.box h2 {
     color: white;
 }
 
-
-
 .form-container {
-    max-width: 400px;
+    max-width: 500px;
     background: white;
     padding: 20px;
     margin: 20px auto;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    padding-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .form-item {
@@ -101,4 +109,8 @@ h2 {
 .form-item textarea {
     height: 100px;
     resize: vertical;
+}
+
+.form-item {
+
 }
