@@ -3,32 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>KinoXP</title>
-    <link href="css/index.css" rel="stylesheet">
+    <title>Login</title>
+    <link href="css/admin.css" rel="stylesheet">
 </head>
 <body>
-
 <header>
-    <h1>Welcome to KinoXP</h1>
-    <p>The best our small town has to offer!</p>
+    <span class="logo"><a href="index.html">KinoXP</a></span>
+    <h1>Admin</h1>
 </header>
 
-<main>
-    <section id="movies">
-        <h2>Now Showing</h2>
-        <p>Movies</p>
-    </section>
-    <select id="movie">
-        <option value="">Vælg en film</option>
-    </select>
-</main>
-
-<footer>
-    <div class="worker-footer">
-        <p>Workers Login <a href="login.html">Click Here</a></p>
+<div class="form-container">
+    <h2>Login</h2>
+    <div class="form-item">
+        <input id="login-username" placeholder="Enter username" type="text">
     </div>
-</footer>
+    <div class="form-item">
+        <input id="login-password" placeholder="Enter password" type="password">
+    </div>
+    <button id="login-button">Login</button>
+    <span class="login-message"></span>
+</div>
 
-<script type="module" src="js/index.js"></script>
+<script src="js/login.js" type="module"></script>
 </body>
 </html>
