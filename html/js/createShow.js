@@ -1,3 +1,5 @@
+import apiUrl from "./config";
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies();
     fetchHalls();
@@ -16,7 +18,7 @@ function handleFormSubmit(event) {
 
     const data = {movie_id, hallId, start_date, end_date, time};
 
-    fetch("http://localhost:8080/shows/add", {
+    fetch(`${apiUrl}/shows/add`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -37,7 +39,7 @@ function handleFormSubmit(event) {
 }
 
 function fetchMovies() {
-    fetch("http://localhost:8080/movies/all")
+    fetch(`${apiUrl}/movies/all`)
         .then(response => response.json())
         .then(movies => {
             const movieSelect = document.querySelector("#movie");
@@ -53,7 +55,7 @@ function fetchMovies() {
 }
 
 function fetchHalls() {
-    fetch("http://localhost:8080/theaterhalls/all")
+    fetch(`${apiUrl}/theaterhalls/all`)
         .then(response => response.json())
         .then(halls => {
             const hallSelect = document.querySelector("#hall");

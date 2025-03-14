@@ -1,6 +1,8 @@
+import apiUrl from "./config.js";
+
 // fetch categories from enums in backend
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost:8080/movies/categories")
+    fetch(`${apiUrl}/movies/categories`)
         .then(response => response.json())
         .then(data => {
             const selectElement = document.querySelector("#categorySelect");
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cover_image: "/resources/img"
         };
 
-        fetch("http://localhost:8080/movies/add", {
+        fetch(`${apiUrl}/movies/ad`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

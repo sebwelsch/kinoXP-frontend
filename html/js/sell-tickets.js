@@ -1,3 +1,5 @@
+import apiUrl from "./config";
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies();
 });
@@ -39,7 +41,7 @@ document.querySelector("#btnBook").addEventListener("click", () => {
 
     const data = {show_id, time, seats, date, customer_name, customer_email};
 
-    fetch("http://localhost:8080/bookings/add", {
+    fetch(`${apiUrl}/bookings/add`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -61,7 +63,7 @@ document.querySelector("#btnBook").addEventListener("click", () => {
 
 
 function fetchMovies() {
-    fetch("http://localhost:8080/movies/all")
+    fetch(`${apiUrl}/movies/all`)
         .then(response => response.json())
         .then(movies => {
             const movieSelect = document.querySelector("#movie");
@@ -77,7 +79,7 @@ function fetchMovies() {
 
 
 function fetchDates(movieId) {
-    fetch(`http://localhost:8080/shows/dates?movie_id=${movieId}`)
+    fetch(`${apiUrl}/shows/dates?movie_id=${movieId}`)
         .then(response => response.json())
         .then(dates => {
             resetDropdown("#date");
@@ -95,7 +97,7 @@ function fetchDates(movieId) {
 
 
 function fetchTimes(movieId, date) {
-    fetch(`http://localhost:8080/shows/times?movie_id=${movieId}&date=${date}`)
+    fetch(`${apiUrl}/shows/times?movie_id=${movieId}&date=${date}`)
         .then(response => response.json())
         .then(times => {
             resetDropdown("#time");

@@ -1,3 +1,5 @@
+import apiUrl from "./config";
+
 document.getElementById("signup-button").addEventListener("click", function () {
     const username = document.getElementById("signup-username").value;
     const password = document.getElementById("signup-password").value;
@@ -5,7 +7,7 @@ document.getElementById("signup-button").addEventListener("click", function () {
 
     const data = {username, password};
 
-    fetch("http://localhost:8080/user/signup", {
+    fetch(`${apiUrl}/user/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

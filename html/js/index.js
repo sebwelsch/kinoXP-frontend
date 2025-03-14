@@ -1,5 +1,7 @@
+import apiUrl from "./config";
+
 function fetchMovies() {
-    fetch("http://localhost:8080/movies/all")
+    fetch(`${apiUrl}/movies/all`)
         .then(response => response.json())
         .then(movies => {
             const movieSelect = document.querySelector("#movie");

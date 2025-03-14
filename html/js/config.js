@@ -1,5 +1,5 @@
-const API_URL = window.location.hostname === "localhost"
-    ? "http://localhost:8080/user"  // Local API
-    : "https://yourazureapi.com/user"; // Azure API
+const apiUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:8080' // Local development
+    : 'https://your-production-url.azurewebsites.net'; // Production
 
-export default API_URL;
+export default apiUrl;
