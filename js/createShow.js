@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function handleFormSubmit(event) {
-    event.preventDefault(); // Forhindrer standard form submission
+    event.preventDefault();
 
     const movie_id = parseInt(document.querySelector("#movie").value);
     const hallId = parseInt(document.querySelector("#hall").value);
@@ -41,7 +41,7 @@ function fetchMovies() {
         .then(response => response.json())
         .then(movies => {
             const movieSelect = document.querySelector("#movie");
-            movieSelect.innerHTML = '<option value="">Vælg en film</option>'; // Ryd dropdown først
+            movieSelect.innerHTML = '<option value="">Vælg en film</option>';
             movies.forEach(movie => {
                 const option = document.createElement("option");
                 option.value = movie.movie_id;
@@ -57,10 +57,10 @@ function fetchHalls() {
         .then(response => response.json())
         .then(halls => {
             const hallSelect = document.querySelector("#hall");
-            hallSelect.innerHTML = '<option value="">Vælg en sal</option>'; // Ryd dropdown først
+            hallSelect.innerHTML = '<option value="">Vælg en sal</option>';
             halls.forEach(hall => {
                 const option = document.createElement("option");
-                option.value = hall.hall_id; // Sørg for at matche backend
+                option.value = hall.hall_id;
                 option.textContent = hall.name;
                 hallSelect.appendChild(option);
             });
