@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
 document.querySelector("#btnCreate").addEventListener("click", () => {
 
     const movie_id = parseInt(document.querySelector("#movie").value);
-    const hall_id = parseInt(document.querySelector("#hall").value);
+    const hallId = parseInt(document.querySelector("#hall").value);
     const start_date = document.querySelector("#start_date").value;
     const end_date = document.querySelector("#end_date").value;
     const time = document.querySelector("#time").value;
 
 
-    const data = { movie_id, hall_id, start_date, end_date, time };
-    console.log("Data sendt til server:", data);
+    const data = { movie_id, hallId, start_date, end_date, time };
+    console.log("Data sendt til server:", JSON.stringify(data));
 
 
     fetch("http://localhost:8080/shows/add", {
