@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const username = document.getElementById("login-username").value;
         const password = document.getElementById("login-password").value;
 
-        const data = { username, password };
+        const data = {username, password};
 
         fetch(`${apiUrl}/user/login`, {
             method: "POST",

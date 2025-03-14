@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>All movies - Admin</title>
+    <link href="css/admin.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <span class="logo"><a href="admin.html">KinoXP</a></span>
+    <h1>All movies - Admin</h1>
+</header>
+
+<div class="container" style="align-items: center">
+    <h2>All movies</h2>
+    <table class="booking-table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Age rating</th>
+            <th>Duration</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="movieTableBody">
+        </tbody>
+    </table>
+</div>
+
+<script src="js/movies.js" type="module"></script>
 
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <span class="logo"><a href="index.html">KinoXP</a></span>
+    <span class="logo"><a href="admin.html">KinoXP</a></span>
     <h1>Admin</h1>
 </header>
 
@@ -25,21 +25,21 @@
 
         <div class="form-item">
             <label for="date">Vælg dato:</label>
-            <select id="date" required disabled>
+            <select disabled id="date" required>
                 <option value="">Vælg en dato</option>
             </select>
         </div>
 
         <div class="form-item">
             <label for="time">Vælg tidspunkt:</label>
-            <select id="time" required disabled>
+            <select disabled id="time" required>
                 <option value="">Vælg et tidspunkt</option>
             </select>
         </div>
 
         <div class="form-item">
             <label for="seats">Antal billetter:</label>
-            <input id="seats" min="1" required type="number" disabled>
+            <input disabled id="seats" min="1" required type="number">
         </div>
 
         <div class="form-item">
@@ -56,6 +56,6 @@
     </form>
 </div>
 
-<script type="module" src="js/sell-tickets.js"></script>
+<script src="js/sell-tickets.js" type="module"></script>
 </body>
 </html>

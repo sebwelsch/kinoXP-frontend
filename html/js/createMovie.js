@@ -44,9 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(result => {
                 console.log("Movie added successfully", result);
+                alert("Movie added successfully");
             })
             .catch(error => {
                 console.error("Error adding movie", error);
+                alert("Error adding movie");
             });
     });
 

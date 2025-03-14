@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         fetch(`${apiUrl}/bookings/book`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(data)
         })
             .then(response => response.json())
@@ -84,14 +84,14 @@ function fetchDates(movieId) {
 function fetchTimes(movieId, date) {
     fetch(`${apiUrl}/shows/times?movie_id=${movieId}&date=${date}`)
         .then(response => response.json())
-        .then(times => {  // Now times is an array of strings
+        .then(times => {
             resetDropdown("#time");
             const timeSelect = document.querySelector("#time");
             timeSelect.disabled = false;
             times.forEach(time => {
                 const option = document.createElement("option");
-                option.value = time;  // Use the time as the value
-                option.textContent = time;  // Display the time as text
+                option.value = time;
+                option.textContent = time;
                 timeSelect.appendChild(option);
             });
         })
