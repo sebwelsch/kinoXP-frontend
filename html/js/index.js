@@ -1,36 +1,36 @@
-import apiUrl from "./config.js";
+fetch(`${apiUrl}/movies/all`)
+    .then(response => response.json())
+    .then(movies => {
+        console.log("Fetched movies:", movies); // Log response
 
-function fetchMovies() {
-    fetch(`${apiUrl}/movies/all`)
-        .then(response => response.json())
-        .then(movies => {
-            const moviesSection = document.querySelector("#movie-list");
+        if (!Array.isArray(movies)) {
+            throw new Error("Expected an array but got something else.");
+        }
 
-            if (movies.length === 0) {
-                moviesSection.innerHTML = "<p>No movies currently available.</p>";
-                return;
-            }
+        const moviesSection = document.querySelector("#movie-list");
 
-            movies.forEach(movie => {
-                const movieCard = document.createElement("div");
-                movieCard.classList.add("movie-card");
+        if (movies.length === 0) {
+            moviesSection.innerHTML = "<p>No movies currently available.</p>";
+            return;
+        }
 
-                movieCard.innerHTML = `
-                    <img src="${movie.cover_image}" alt="${movie.name}" class="movie-cover">
-                    <div class="movie-info">
-                        <h3>${movie.name}</h3>
-                        <p><strong>Category:</strong> ${movie.category}</p>
-                        <p><strong>Age Rating:</strong> ${movie.age_rating}+</p>
-                        <p><strong>Actors:</strong> ${movie.actors}</p>
-                        <p><strong>Duration:</strong> ${movie.duration} min</p>
-                        <p class="movie-description">${movie.description}</p>
-                    </div>
-                `;
+        movies.forEach(movie => {
+            const movieCard = document.createElement("div");
+            movieCard.classList.add("movie-card");
 
-                moviesSection.appendChild(movieCard);
-            });
-        })
-        .catch(error => console.error("Error fetching movies:", error));
-}
+            movieCard.innerHTML = `
+                <img src="${movie.cover_image}" alt="${movie.name}" class="movie-cover">
+                <div class="movie-info">
+                    <h3>${movie.name}</h3>
+                    <p><strong>Category:</strong> ${movie.category}</p>
+                    <p><strong>Age Rating:</strong> ${movie.age_rating}+</p>
+                    <p><strong>Actors:</strong> ${movie.actors}</p>
+                    <p><strong>Duration:</strong> ${movie.duration} min</p>
+                    <p class="movie-description">${movie.description}</p>
+                </div>
+            `;
 
-document.addEventListener("DOMContentLoaded", fetchMovies);
+            moviesSection.appendChild(movieCard);
+        });
+    })
+    .catch(error => console.error("Error fetching movies:", error));
