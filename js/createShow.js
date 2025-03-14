@@ -14,7 +14,7 @@ function handleFormSubmit(event) {
     const end_date = document.querySelector("#end_date").value;
     const time = document.querySelector("#time").value;
 
-    const data = { movie_id, hallId, start_date, end_date, time };
+    const data = {movie_id, hallId, start_date, end_date, time};
 
     fetch("http://localhost:8080/shows/add", {
         method: "POST",

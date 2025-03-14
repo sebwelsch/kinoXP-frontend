@@ -1,9 +1,9 @@
-document.getElementById("login-button").addEventListener("click", function() {
+document.getElementById("login-button").addEventListener("click", function () {
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
     const messageElement = document.getElementById("login-message");
 
-    const data = { username, password };
+    const data = {username, password};
 
     fetch("http://localhost:8080/user/login", {
         method: "POST",
@@ -15,7 +15,9 @@ document.getElementById("login-button").addEventListener("click", function() {
     })
         .then(response => {
             if (!response.ok) {
-                return response.text().then(errorText => { throw new Error(errorText); });
+                return response.text().then(errorText => {
+                    throw new Error(errorText);
+                });
             }
             return response.text();
         })

@@ -37,7 +37,7 @@ document.querySelector("#btnBook").addEventListener("click", () => {
     const date = document.querySelector("#date").value;
     const time = document.querySelector("#time option:checked").textContent;
 
-    const data = { show_id, time, seats, date, customer_name, customer_email };
+    const data = {show_id, time, seats, date, customer_name, customer_email};
 
     fetch("http://localhost:8080/bookings/add", {
         method: "POST",

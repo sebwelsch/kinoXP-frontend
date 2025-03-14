@@ -2,64 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Add movie</title>
-    <link rel="stylesheet" href="../css/admin.css">
+    <link href="../css/admin.css" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <span class ="logo"><a href="index.html">KinoXP</a></span>
+    <span class="logo"><a href="index.html">KinoXP</a></span>
     <h1>Admin</h1>
 </header>
-
-<main>
-    <section id="movies">
-        <div class="form-container">
-            <h2>Add a new movie</h2>
-            <form id="createMovieForm">
-                <div class="form-item">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-item">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" required></textarea>
-                </div>
-
-                <div class="form-item">
-                    <label for="age_rating">Age Rating</label>
-                    <input type="number" id="age_rating" name="age_rating" min="0" max="99">
-                </div>
-
-                <div class="form-item">
-                    <label for="categorySelect">Category</label>
-                    <select id="categorySelect" name="category" required>
-                        <option value="">Select a category</option>
-                    </select>
-                </div>
-
-                <div class="form-item">
-                    <label for="actors">Actors</label>
-                    <input type="text" id="actors" name="actors">
-                </div>
-
-                <div class="form-item">
-                    <label for="duration">Duration (minutes)</label>
-                    <input type="number" id="duration" name="duration" required>
-                </div>
-                <!--            <label>-->
-                <!--                Cover image-->
-                <!--                <input type="file" id="cover_image" name="cover_image" accept="image/png">-->
-                <!--            </label>-->
-
-                <button type="submit" class="">Add movie</button>
-            </form>
+´
+<div class="form-container">
+    <h2>Add a new movie</h2>
+    <form id="createMovieForm">
+        <div class="form-item">
+            <label for="name">Name</label>
+            <input id="name" name="name" required type="text">
         </div>
 
-    </section>
-</main>
+        <div class="form-item">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+
+        <div class="form-item">
+            <label for="age_rating">Age Rating</label>
+            <input id="age_rating" max="99" min="0" name="age_rating" type="number">
+        </div>
+
+        <div class="form-item">
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect" name="category" required>
+                <option value="">Select a category</option>
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label for="actors">Actors</label>
+            <input id="actors" name="actors" type="text">
+        </div>
+
+        <div class="form-item">
+            <label for="duration">Duration (minutes)</label>
+            <input id="duration" name="duration" required type="number">
+        </div>
+
+        <div class="form-item">
+            <label for="cover_image">Cover image</label>
+            <input accept="image/png" disabled id="cover_image" name="cover_image" type="file">
+        </div>
+
+        <button class="" type="submit">Add movie</button>
+    </form>
+</div>
+
 
 <script src="../js/createMovie.js"></script>
 </body>

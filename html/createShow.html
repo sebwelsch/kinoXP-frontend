@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opret Show</title>
-  <link href="../css/admin.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Opret Show</title>
+    <link href="../css/admin.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <span class="logo"><a href="index.html">KinoXP</a></span>
+    <h1>Admin</h1>
+</header>
 <div class="form-container">
-  <h2>Opret nyt show</h2>
-  <form id="createShowForm">
-    <div class="form-item">
-      <label for="movie">Vælg film:</label>
-      <select id="movie" required>
-        <option value="">Vælg en film</option>
-      </select>
-    </div>
+    <h2>Opret nyt show</h2>
+    <form id="createShowForm">
+        <div class="form-item">
+            <label for="movie">Vælg film:</label>
+            <select id="movie" required>
+                <option value="">Vælg en film</option>
+            </select>
+        </div>
 
-    <div class="form-item">
-      <label for="hall">Vælg sal:</label>
-      <select id="hall" required>
-        <option value="">Vælg en sal</option>
-      </select>
-    </div>
+        <div class="form-item">
+            <label for="hall">Vælg sal:</label>
+            <select id="hall" required>
+                <option value="">Vælg en sal</option>
+            </select>
+        </div>
 
-    <div class="form-item">
-      <label for="start_date">Startdato:</label>
-      <input type="date" id="start_date" required>
-    </div>
+        <div class="form-item">
+            <label for="start_date">Startdato:</label>
+            <input id="start_date" required type="date">
+        </div>
 
-    <div class="form-item">
-      <label for="end_date">Slutdato:</label>
-      <input type="date" id="end_date" required>
-    </div>
+        <div class="form-item">
+            <label for="end_date">Slutdato:</label>
+            <input id="end_date" required type="date">
+        </div>
 
-    <div class="form-item">
-      <label for="time">Tidspunkt:</label>
-      <input type="time" id="time" required>
-    </div>
+        <div class="form-item">
+            <label for="time">Tidspunkt:</label>
+            <input id="time" required type="time">
+        </div>
 
-    <button id="btnCreate" type="submit">Opret Show</button>
-  </form>
+        <button id="btnCreate" type="submit">Opret Show</button>
+    </form>
 </div>
 
 <script src="../js/createShow.js"></script>
