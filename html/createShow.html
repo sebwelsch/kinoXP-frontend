@@ -3,23 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Vis Bookinger</title>
+    <title>Opret Show</title>
     <link href="css/admin.css" rel="stylesheet">
 </head>
 <body>
 <header>
-    <span class="logo"><a href="index.html">KinoXP</a></span>
-    <h1>Admin - Bookinger</h1>
+    <span><a href="index.html">KinoXP</a></span>
+    <h1>Admin - Opret Show</h1>
 </header>
 
-<div class="form-container">
-    <h2>Alle Bookinger</h2>
-    <div id="bookingsContainer">
+<div>
+    <h2>Opret nyt show</h2>
+    <form id="createShowForm">
+        <div>
+            <label for="movie">Vælg film:</label>
+            <select id="movie" required>
+                <option value="">Vælg en film</option>
+            </select>
+        </div>
 
-    </div>
+        <div>
+            <label for="hall">Vælg sal:</label>
+            <select id="hall" required>
+                <option value="">Vælg en sal</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="start_date">Startdato:</label>
+            <input id="start_date" type="date" required>
+        </div>
+
+        <div>
+            <label for="end_date">Slutdato:</label>
+            <input id="end_date" type="date" required>
+        </div>
+
+        <div>
+            <label for="time">Tidspunkt:</label>
+            <input id="time" type="time" required>
+        </div>
+
+        <button id="btnCreate" type="submit">Opret Show</button>
+    </form>
 </div>
 
-<script type="module" src="js/bookings.js"></script>
+<script type="module" src="js/createShow.js"></script>
 
 </body>
 </html>
